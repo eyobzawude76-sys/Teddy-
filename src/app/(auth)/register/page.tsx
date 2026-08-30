@@ -36,21 +36,25 @@ export default function RegisterPage() {
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://college-management-backend-ysny.onrender.com";
 
-  useEffect(() => {
-    const fetchDepartments = async () => {
-      try {
-        setFetchingDepts(true);
-        const res = await axios.get(`${API_URL}/api/v1/students/departments/public`);
-        setDepartments(res.data);
-      } catch (err) {
-        console.error("Department fetch error:", err);
-      } finally {
-        setFetchingDepts(false);
-      }
-    };
+ useEffect(() => {
+  const fetchDepartments = async () => {
+    try {
+      setFetchingDepts(true);
 
-    fetchDepartments();
-  }, [API_URL]);
+      const res = await axios.get(
+        `${API_URL}/students/departments/public`
+      );
+
+      setDepartments(res.data);
+    } catch (err) {
+      console.error("Department fetch error:", err);
+    } finally {
+      setFetchingDepts(false);
+    }
+  };
+
+  fetchDepartments();
+}, [API_URL]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
