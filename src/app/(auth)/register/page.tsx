@@ -34,9 +34,13 @@ export default function RegisterPage() {
     receipt_document: null as File | null,
   });
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://college-management-backend-ysny.onrender.com";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://college-management-backend-ysny.onrender.com/api/v1";
 
+<<<<<<< HEAD
  useEffect(() => {
+=======
+  useEffect(() => {
+>>>>>>> e134689 (fv)
   const fetchDepartments = async () => {
     try {
       setFetchingDepts(true);
