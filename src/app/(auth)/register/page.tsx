@@ -90,7 +90,7 @@ export default function RegisterPage() {
       if (files.certificate_document) formData.append("certificate_document", files.certificate_document);
       if (files.receipt_document) formData.append("receipt_document", files.receipt_document);
 
-      await axios.post(`${API_URL}/api/v1/students/register`, formData, {
+      await axios.post(`${API_URL}/students/register`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
